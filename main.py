@@ -7,6 +7,9 @@ import os
 my_email = os.environ.get("MY_EMAIL")
 password = os.environ.get("MY_PASSWORD")
 
+#my_email = "rho416341@gmail.com"
+#password = "tqnqrmxmjesqgvpw"
+
 birthdays = []
 with open("birthdays.csv", "r") as file:
     data = csv.DictReader(file)
@@ -31,3 +34,4 @@ for birthday in birthdays:
             connection.starttls()
             connection.login(user=my_email, password=password)
             connection.sendmail(from_addr=my_email,to_addrs=birthday["email"], msg=f"Subject: Happy Birthday {birthday["name"]}! \n\n {letter_string}")
+print("Finished Running")
